@@ -16,24 +16,27 @@ brew install kubectl
 ```
 minikube version
 ```
-```
-minikube start
-```
+### lists profiles in minkube
 ```
 minikube profile list
 ```
+### shows namespaces
 ```
 kubectl get ns
 ```
+### shows pods with labels
 ```
 kubectl get pods --show-labels -n <namespace>
 ```
+### creates namespace
 ```
-kubectl create namespace skns
+kubectl create ns skns
 ```
+### shifts to namespace
 ```
 kubens <namespace>
 ```
+### shows services running
 ```
 minikube service list
 ```
@@ -46,21 +49,22 @@ minikube start
 ```
 minikube start -p demo-cluster --memory 2048 --cpus 2
 ```
+### applies task definition configuration
 ```
 kubectl apply -f pod.yaml -n skns
 ```
 ```
 kubectl get pods -o wide
 ```
-```
-minikube service list
-```
+### shows services
 ```
 kubectl get svc
 ```
+### creating service
 ```
 kubectl expose pod/<podname> --type=LoadBalancer/clusterip/nodeport --name=<name of service --port=<port> --target-port=container-port
 ```
+### labels pod
 ```
 kubectl label pod <podname> env=<label>
 ```
@@ -73,12 +77,14 @@ kubectl delete service <service-name>
 ```
 kubectl get all
 ```
+### minikube creates profile and starts it
 ```
-minikube start -p demo2
+minikube start -p <profilename>
 ```
 ```
-minikube delete -p demo2
+minikube delete -p <profilename>
 ```
+### shows profile info
 ```
 minikube config view
 ```
